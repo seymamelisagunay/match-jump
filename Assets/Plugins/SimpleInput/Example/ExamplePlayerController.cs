@@ -2,7 +2,8 @@
 
 public class ExamplePlayerController : MonoBehaviour
 {
-	public Color materialColor;
+	[SerializeField] public CirclesData circlesData = null;
+	//public Color materialColor;
 	private Rigidbody m_rigidbody;
 
 	public string horizontalAxis = "Horizontal";
@@ -11,10 +12,10 @@ public class ExamplePlayerController : MonoBehaviour
 
 	private float inputHorizontal;
 	private float inputVertical;
+	private float direction = -1;
 
 	void Awake()
 	{
-		//GetComponent<Renderer>().material.color = materialColor;
 		m_rigidbody = GetComponent<Rigidbody>();
 	}
 
@@ -23,7 +24,7 @@ public class ExamplePlayerController : MonoBehaviour
 		inputHorizontal = SimpleInput.GetAxis( horizontalAxis );
 		inputVertical = SimpleInput.GetAxis( verticalAxis );
 
-		transform.Rotate( 0f, -inputHorizontal * 1f, 0f, Space.World );
+		transform.Rotate( 0f, direction*inputHorizontal * 1f, 0f, Space.World );
 
 		if( SimpleInput.GetButtonDown( jumpButton ) && IsGrounded() )
 			m_rigidbody.AddForce( 0f, 2f, 0f, ForceMode.Impulse );

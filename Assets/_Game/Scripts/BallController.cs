@@ -30,18 +30,19 @@ public class BallController : MonoBehaviour
 
     public void BallRandomColor()
     {
-        GetComponent<Renderer>().sharedMaterial = ballMaterialArray[_random.Next(0, ballMaterialArray.Length)];
-        ballColor = GetComponent<Renderer>().sharedMaterial;
+        ballColor = ballMaterialArray[_random.Next(0, ballMaterialArray.Length)];
+        GetComponent<Renderer>().sharedMaterial = ballColor;
+        GetComponent<TrailRenderer>().sharedMaterial = ballColor;
         PaintInkColorChange(ballColor.name);
         //_material = GetComponent<TrailRenderer>().sharedMaterial;
     }
     
     public void PaintInkColorChange(string colorName)
     {
-        /*foreach (Transform child in paintInkPrefab.transform)
+        foreach (Transform child in paintInkPrefab.transform)
         {
             child.gameObject.SetActive(false);
-        }*/
+        }
 
         switch (colorName)
         {

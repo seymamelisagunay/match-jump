@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using NaughtyAttributes;
+using Random = UnityEngine.Random;
+
 public class CircleController : MonoBehaviour
 {
     System.Random _random = new System.Random();
-    
-    public GameObject[] newCircles;
-    public float speed;
-    public bool circleMoveAct = true;
-    public Transform lastSlot;
+    [SerializeField] private CirclesData circlesData = null;
     private Rigidbody _rigidbody;
     private Vector3 _moveValue;
+    
+   // public GameObject[] newCircles;
+   // public float speed;
+   // public bool circleMoveAct;
+    public Transform lastSlot;
+    
     
     private void Start()
     {
@@ -22,9 +26,9 @@ public class CircleController : MonoBehaviour
     }
     private void FixedUpdate() 
     {
-        if(circleMoveAct)
+        if(circlesData.circleMoveAct)
         { 
-            _moveValue += Vector3.up * speed * Time.fixedDeltaTime; 
+            _moveValue += Vector3.up * circlesData.speed * Time.fixedDeltaTime; 
             _rigidbody.MovePosition(_moveValue); 
         }
     }
@@ -40,22 +44,24 @@ public class CircleController : MonoBehaviour
     
     private void CreateCircle(Vector3 spawnPoint)
     {
-      Instantiate(newCircles[_random.Next(0, newCircles.Length)], spawnPoint, 
+      Instantiate(circlesData.newCircles[_random.Next(0, circlesData.newCircles.Length)], spawnPoint, 
           Quaternion.Euler(new Vector3(0,_random.Next(0,12) * 30,0)), gameObject.transform);
     }
+    /*
     [Button()]
     public void CircleMoveStop()
     {
-        circleMoveAct = false;
+        circlesData.circleMoveAct = false;
         _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
     [Button()]
     public void CircleMoveStart()
     {
-        circleMoveAct = true;
+        //_random.Next(0,12) * 30,0)
+        circlesData.circleMoveAct = true;
        // _rigidbody.constraints = RigidbodyConstraints.None;
         _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
                                  RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-    }
+    }*/
     
 }

@@ -5,14 +5,15 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using NaughtyAttributes;
 
 public class ColorMatching : MonoBehaviour
 {
-    public BallController ballController;
-    private CircleController _circleController = new CircleController();
-    //private Material _ballColorMaterial;
+    [SerializeField] private CirclesData circlesData = null;
+    //private CircleController _circleController = new CircleController();
     private Vector3 _contactPoint;
     
+    public BallController ballController;
     private void OnCollisionEnter(Collision collision)
     {
         _contactPoint = collision.contacts[0].point;
@@ -35,6 +36,12 @@ public class ColorMatching : MonoBehaviour
             ballController.PaintInkCreateAndDestroy(_contactPoint,collision.transform);
         }
 
+    }
+
+    [Button()]
+    public void TestStop()
+    {
+       circlesData.circleMoveAct = false;
     }
 
 }
