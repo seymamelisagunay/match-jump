@@ -8,5 +8,8 @@ public class CirclesData : ScriptableObject
     public GameObject[] newCircles;
     public float speed;
     public bool circleMoveAct = true;
-   // public Transform lastSlot;
+    
+    public int direction = -1;
+    [TextArea]
+    public string directionDescription;
 }

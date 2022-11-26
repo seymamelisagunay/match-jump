@@ -12,7 +12,7 @@ public class ExamplePlayerController : MonoBehaviour
 
 	private float inputHorizontal;
 	private float inputVertical;
-	private float direction = -1;
+	//private int direction = -1;
 
 	void Awake()
 	{
@@ -24,7 +24,7 @@ public class ExamplePlayerController : MonoBehaviour
 		inputHorizontal = SimpleInput.GetAxis( horizontalAxis );
 		inputVertical = SimpleInput.GetAxis( verticalAxis );
 
-		transform.Rotate( 0f, direction*inputHorizontal * 1f, 0f, Space.World );
+		transform.Rotate( 0f, circlesData.direction*inputHorizontal * 1f, 0f, Space.World );
 
 		if( SimpleInput.GetButtonDown( jumpButton ) && IsGrounded() )
 			m_rigidbody.AddForce( 0f, 2f, 0f, ForceMode.Impulse );

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c400da50aa39154dbedfcfce72f172e, type: 3}
-  m_Name: NormalCircle
+  m_Name: WrongDirectionCircle
   m_EditorClassIdentifier: 
   newCircles:
   - {fileID: 4145519510500491610, guid: 890a5ee7b68da1847892584d2245c3dd, type: 3}
@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 4145519510500491610, guid: 2c3b42bef16916945a555da1a75e454a, type: 3}
   speed: 2
   circleMoveAct: 1
-  direction: -1
+  direction: 1
   directionDescription: 'for the wrong direction = 1
 
     for the right direction

@@ -10,6 +10,7 @@ TagManager:
   - Red
   - UpperCircle
   - Death
+  - Ball
   layers:
   - Default
   - TransparentFX

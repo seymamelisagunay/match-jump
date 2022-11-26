@@ -8,17 +8,12 @@ using Random = UnityEngine.Random;
 
 public class CircleController : MonoBehaviour
 {
+    public Transform lastSlot;
     System.Random _random = new System.Random();
     [SerializeField] private CirclesData circlesData = null;
     private Rigidbody _rigidbody;
     private Vector3 _moveValue;
-    
-   // public GameObject[] newCircles;
-   // public float speed;
-   // public bool circleMoveAct;
-    public Transform lastSlot;
-    
-    
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -47,21 +42,5 @@ public class CircleController : MonoBehaviour
       Instantiate(circlesData.newCircles[_random.Next(0, circlesData.newCircles.Length)], spawnPoint, 
           Quaternion.Euler(new Vector3(0,_random.Next(0,12) * 30,0)), gameObject.transform);
     }
-    /*
-    [Button()]
-    public void CircleMoveStop()
-    {
-        circlesData.circleMoveAct = false;
-        _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-    }
-    [Button()]
-    public void CircleMoveStart()
-    {
-        //_random.Next(0,12) * 30,0)
-        circlesData.circleMoveAct = true;
-       // _rigidbody.constraints = RigidbodyConstraints.None;
-        _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
-                                 RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-    }*/
-    
+
 }
