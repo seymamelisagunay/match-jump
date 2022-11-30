@@ -553,6 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9208296936703464590}
+  - component: {fileID: 1517472063055880622}
   m_Layer: 0
   m_Name: Circle 1
   m_TagString: Untagged
@@ -579,6 +580,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1517472063055880622
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145519510500491610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1839483, y: 0.75801563, z: 1.0054369}
+  m_Center: {x: -0.01200521, y: -0.2710414, z: 0.03924176}
 --- !u!1 &5367082522250635930
 GameObject:
   m_ObjectHideFlags: 0

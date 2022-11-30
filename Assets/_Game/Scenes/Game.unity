@@ -688,7 +688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216542162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.45, z: -1.85}
+  m_LocalPosition: {x: 0, y: 5.18, z: -1.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1556,7 +1556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649813886}
   m_LocalRotation: {x: 0.1641869, y: 0, z: 0, w: 0.9864293}
-  m_LocalPosition: {x: 0, y: 12.73, z: -12.51}
+  m_LocalPosition: {x: 0, y: 9.46, z: -12.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2153,7 +2153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.1641869, y: 0, z: 0, w: 0.9864293}
-  m_LocalPosition: {x: 0, y: 12.73, z: -12.51}
+  m_LocalPosition: {x: 0, y: 9.46, z: -12.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2304,7 +2304,7 @@ GameObject:
   - component: {fileID: 1001355187}
   m_Layer: 0
   m_Name: GreenPart
-  m_TagString: Red
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4284,8 +4284,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f0431526ec76a674e8533b8283f5ca90, type: 2}
   ballColor: {fileID: 0}
   ballMoveAct: 1
-  paintInkPrefab: {fileID: 459425144873639795, guid: 0572aee787332c14283b7690d10fda11, type: 3}
-  paintInkPrefabObj: {fileID: 0}
+  paintInk: {fileID: 0}
+  paintInkRed: {fileID: 4542206319568410476, guid: 0af16b15579ecf74e8f9a740e6dc5ee9, type: 3}
+  paintInkYellow: {fileID: 433001541951846765, guid: 1b8ccb5f0e3263647904ebc49c6b05f8, type: 3}
+  paintInkBlue: {fileID: 2649703321730407792, guid: 01ad93613b93cb84581e6a6c618749dd, type: 3}
+  paintInkGreen: {fileID: 5037543673003801351, guid: a11d1534e7a59a440994312e45575045, type: 3}
   deathEffect: {fileID: 0}
   deathRedEffect: {fileID: 1607639662943796, guid: 9e813ea11977bbc49af3335aeebf7554, type: 3}
   deathYellowEffect: {fileID: 1607639662943796, guid: 29ff4766b6dd6d442a8a95a8ce3403e4, type: 3}
@@ -4304,10 +4307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7991375a403d08b4ea982b9bd230fc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circlesData: {fileID: 11400000, guid: 1f76be986317bd144892026b1a513a5b, type: 2}
-  x: {fileID: 0}
-  particleArray: []
   ballController: {fileID: 2044878313}
+  circlesData: {fileID: 11400000, guid: 1f76be986317bd144892026b1a513a5b, type: 2}
 --- !u!96 &2044878315
 TrailRenderer:
   serializedVersion: 2
@@ -4904,6 +4905,7 @@ GameObject:
   - component: {fileID: 6548469818572950004}
   - component: {fileID: 8789912142649911405}
   - component: {fileID: 8789912142649911406}
+  - component: {fileID: 8789912142649911407}
   m_Layer: 0
   m_Name: FinishPlace
   m_TagString: Untagged
@@ -14974,6 +14976,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8789912142649911407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229158553457340114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea91c1288762b444a9be9f5fd951f6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circlesData: {fileID: 11400000, guid: 1f76be986317bd144892026b1a513a5b, type: 2}
+  winnEffect: {fileID: 1575721338728490, guid: 3b1f682f8ed65c14cb24adbb4e25b23d, type: 3}
+  winnEffectObj: {fileID: 0}
+  ball: {fileID: 2044878307}
 --- !u!33 &8792558945697121037
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -14,12 +14,14 @@ public class ColorMatching : MonoBehaviour
         {
             Destroy(collision.collider.transform.parent.gameObject); 
         }
-        else if(!(collision.gameObject.CompareTag("Death") || collision.gameObject.CompareTag("Finish")))
+        else if(!collision.gameObject.CompareTag("Death"))
         {
+            
             ballController.BallJump();
-            ballController.PaintInkCreateAndDestroy(_contactPoint,collision.transform);
+            ballController.PaintInkCreateAndDestroy(_contactPoint + new Vector3(0f,0.1f,0f),collision.transform);
         }
 
+        //!(collision.gameObject.CompareTag("Death") || collision.gameObject.CompareTag("Finish"))
     }
 
 }

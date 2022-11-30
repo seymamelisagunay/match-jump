@@ -9,11 +9,11 @@ public class BallController : MonoBehaviour
     public Material[] ballMaterialArray; 
     public Material ballColor;
     public bool ballMoveAct = true;
-    public GameObject paintInkPrefab;
-    public GameObject paintInkPrefabObj;
-    public GameObject deathEffect;
+    [HideInInspector] public GameObject paintInk;
+    public GameObject paintInkRed, paintInkYellow, paintInkBlue, paintInkGreen;
+    [HideInInspector] public GameObject deathEffect;
     public GameObject deathRedEffect,deathYellowEffect,deathBlueEffect,deathGreenEffect;
-    public float paintInkLifeTime = 4;
+    public float paintInkLifeTime = 1.5f;
   
     System.Random _random = new System.Random(); 
     private Rigidbody _rigidbody;
@@ -21,6 +21,7 @@ public class BallController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         BallRandomColor();
+        PaintInkAndEffectSelection(ballColor.name);
     }
 
     public void BallJump()
@@ -36,7 +37,7 @@ public class BallController : MonoBehaviour
         ballColor = ballMaterialArray[_random.Next(0, ballMaterialArray.Length)];
         GetComponent<Renderer>().sharedMaterial = ballColor;
         GetComponent<TrailRenderer>().sharedMaterial = ballColor;
-        PaintInkAndEffectSelection(ballColor.name);
+        
     }
     
     public void PaintInkAndEffectSelection(string colorName)
@@ -44,28 +45,27 @@ public class BallController : MonoBehaviour
         switch (colorName)
         {
             case "Blue" : 
-                paintInkPrefabObj.transform.Find("Blue").gameObject.SetActive(true);
+                paintInk = paintInkBlue;
                 deathEffect = deathBlueEffect;
                 break;
             case "Green" : 
-                paintInkPrefabObj.transform.Find("Green").gameObject.SetActive(true);
+                paintInk = paintInkGreen;
                 deathEffect = deathGreenEffect;
                 break;
             case "Red" : 
-                paintInkPrefabObj.transform.Find("Red").gameObject.SetActive(true);
+                paintInk = paintInkRed;
                 deathEffect = deathRedEffect;
                 break;
             case "Yellow" :
-                paintInkPrefabObj.transform.Find("Yellow").gameObject.SetActive(true);
+                paintInk = paintInkYellow;
                 deathEffect = deathYellowEffect;
                 break;
         }
     }
     
     public void PaintInkCreateAndDestroy(Vector3 contactPoint, Transform parent)
-    { 
-        paintInkPrefabObj = Instantiate(paintInkPrefab, contactPoint, paintInkPrefab.transform.rotation, parent);
-        Destroy(paintInkPrefabObj, paintInkLifeTime);
-        PaintInkAndEffectSelection(ballColor.name);
+    {
+        var instanceObject = Instantiate(paintInk, contactPoint, paintInk.transform.rotation, parent);
+        Destroy(instanceObject, paintInkLifeTime);
     }
 }

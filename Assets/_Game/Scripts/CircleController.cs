@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using NaughtyAttributes;
-using Random = UnityEngine.Random;
 
 public class CircleController : MonoBehaviour
 {
