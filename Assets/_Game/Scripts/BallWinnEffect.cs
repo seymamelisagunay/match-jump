@@ -21,6 +21,7 @@ public class BallWinnEffect : MonoBehaviour
             circlesData.circleMoveAct = false;
             ball.GetComponent<Rigidbody>().isKinematic = true;
             ball.GetComponent<SphereCollider>().enabled = false;
+            ball.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
             _audioSource.PlayOneShot(winnSound);
             _winnEffectObj = winnEffect;
             GameObject effect = Instantiate(_winnEffectObj, ball.transform.position, Quaternion.identity);
