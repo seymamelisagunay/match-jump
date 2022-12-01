@@ -2,18 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 
 public class BallController : MonoBehaviour
 {
-    public Material[] ballMaterialArray; 
-    public Material ballColor;
+    public Material[] ballMaterialArray;
     public bool ballMoveAct = true;
-    [HideInInspector] public GameObject paintInk;
-    public GameObject paintInkRed, paintInkYellow, paintInkBlue, paintInkGreen;
-    [HideInInspector] public GameObject deathEffect;
-    public GameObject deathRedEffect,deathYellowEffect,deathBlueEffect,deathGreenEffect;
     public float paintInkLifeTime = 1.5f;
+
+    [HideInInspector] public Material ballColor;
+    [HideInInspector] public GameObject paintInk;  
+    [HideInInspector] public GameObject deathEffect;
+    public GameObject paintInkRed, paintInkYellow, paintInkBlue, paintInkGreen;
+    public GameObject deathRedEffect,deathYellowEffect,deathBlueEffect,deathGreenEffect;
   
     System.Random _random = new System.Random(); 
     private Rigidbody _rigidbody;
@@ -28,6 +30,7 @@ public class BallController : MonoBehaviour
     {
         if (ballMoveAct)
         {
+            //transform.DOMoveY(transform.position.y + 3.5f, 1.2f);
             _rigidbody.AddForce(new Vector3(0, 6, 0), ForceMode.Impulse);
         }
     }
